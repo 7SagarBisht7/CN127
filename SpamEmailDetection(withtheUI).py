@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 # DATASET IMPORTING
 
 #!pip install chardet
@@ -150,19 +151,25 @@ def predict_and_display():
 
 # updating ===========
 
+# Create the main window
+
+
+# ---------------------
 window = tk.Tk()
 window.title("Spam Email Detector")
 
 # Input area
-tk.Label(window, text="Enter Email Text:",).grid(row=0, column=0)
-text_input = tk.Text(window)
-text_input.grid(row=0, column=1)
+tk.Label(window, text="Enter Email Text:", font=("Helvetica", 12)).grid(row=0, column=0, pady=(10, 5))
+text_input = tk.Text(window, width=40, height=10, font=("Helvetica", 12))
+text_input.grid(row=1, column=0, padx=20)
 
 # Button
-tk.Button(window, text="Predict", command=predict_and_display).grid(row=1, column=1)
+predict_button = tk.Button(window, text="Predict", command=predict_and_display, font=("Helvetica", 12), bg="#007bff", fg="#fff")
+predict_button.grid(row=2, column=0, pady=(5, 10))
 
 # Result label
-result_label = tk.Label(window, text="")
-result_label.grid(row=2, column=0, columnspan=2)
+result_label = tk.Label(window, text="", font=("Helvetica", 12))
+result_label.grid(row=3, column=0, padx=20, pady=(0, 10))
 
+# Run the application
 window.mainloop()
